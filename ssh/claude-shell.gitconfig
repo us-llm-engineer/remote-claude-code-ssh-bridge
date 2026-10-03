@@ -1,0 +1,7 @@
+# This is the chroot's system Git configuration, not the user's Git config.
+# The restricted shell can read and write only /workspace/projects, so Git must
+# recognize repositories under that already-approved mount despite the shell's
+# distinct unprivileged UID. The trailing /* covers repositories nested within
+# the mount, but cannot trust paths outside it.
+[safe]
+	directory = /workspace/projects/*

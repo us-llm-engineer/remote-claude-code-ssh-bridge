@@ -1,0 +1,10 @@
+# Python packages the gateway and its tests import. Tested with CPython 3.12.
+# (pyproject.toml lists only the web-server basics; the MCP SDK is also required.)
+mcp==1.29.0            # MCP server/client SDK (Streamable HTTP, stdio client, OAuth client)
+starlette==1.4.1       # ASGI routing for the public gateway
+uvicorn==0.52.1        # ASGI server
+httpx==0.28.1          # HTTP client used by the test client and the OAuth flow
+anyio==4.14.2          # async runtime used by the MCP SDK and the tests
+pytest==9.1.1          # test runner
+# Needed only on the machine that dials the gateway over the SSH-over-WebSocket path:
+websockets==17.0.1

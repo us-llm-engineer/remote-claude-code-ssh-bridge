@@ -1,0 +1,37 @@
+{
+  "servers": {
+    "colab-proxy-mcp": {
+      "command": "/home/centos/.local/bin/uv",
+      "args": ["run", "--directory", "/home/centos/.claude/mcp-servers/colab-mcp", "colab-mcp"]
+    },
+    "modal-gpu": {
+      "command": "/usr/local/bin/python3",
+      "args": ["/home/centos/.claude/mcp-servers/modal-gpu/modal_server.py"]
+    },
+    "scopus-mcp": {
+      "command": "/home/centos/.claude/mcp-servers/scopus-mcp/.venv/bin/python",
+      "args": ["-m", "scopus_mcp.server"]
+    },
+    "messaging-watcher": {
+      "command": "/home/centos/.nvm/versions/node/v26.7.0/bin/node",
+      "args": ["/home/centos/.claude/mcp-servers/messaging_channel/watcher.ts"]
+    },
+    "codex-opencode-bridge": {
+      "command": "/home/centos/.nvm/versions/node/v26.7.0/bin/node",
+      "args": ["/home/centos/data/projects/for-money/computer-science/upwork/dist/index.js"]
+    },
+    "game-market": {
+      "command": "/usr/local/bin/python3",
+      "args": ["/home/centos/data/utility-server/game-market-mcp/run_server.py"]
+    },
+    "local-folder-stream": {
+      "command": "/usr/local/bin/python3",
+      "args": ["/home/centos/.codex/mcp-servers/local-folder-stream/server.py"]
+    },
+    "playwright": {
+      "command": "/usr/local/libexec/claude-playwright-original",
+      "args": [],
+      "cwd": "/home/centos/data/projects"
+    }
+  }
+}

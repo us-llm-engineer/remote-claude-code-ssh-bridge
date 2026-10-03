@@ -1,0 +1,17 @@
+[Unit]
+Description=Dedicated restricted SSH daemon for remote Claude
+Documentation=file:///home/centos/.claude/mcp-servers/remote-gateway/ssh/README.md
+Requires=srv-claude\x2dremote-projects.mount srv-claude\x2dremote-skills.mount srv-claude\x2dremote-agents.mount claude-shell-sandbox.service
+After=network.target srv-claude\x2dremote-projects.mount srv-claude\x2dremote-skills.mount srv-claude\x2dremote-agents.mount claude-shell-sandbox.service
+
+[Service]
+Type=simple
+ExecStartPre=/usr/sbin/sshd -t -f /etc/claude-remote/sshd_config
+ExecStart=/usr/sbin/sshd -D -e -f /etc/claude-remote/sshd_config
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=on-failure
+RestartSec=3
+PrivateTmp=yes
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,18 @@
+[Unit]
+Description=Cloudflare HTTPS bridge for reviewed local MCP servers
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=centos
+Group=centos
+WorkingDirectory=/home/centos/.claude/mcp-servers/remote-gateway/https_bridge
+ExecStart=/home/centos/.claude/mcp-servers/remote-gateway/https_bridge/start.sh --foreground
+ExecStop=/home/centos/.claude/mcp-servers/remote-gateway/https_bridge/stop.sh
+Restart=on-failure
+RestartSec=5
+KillMode=control-group
+
+[Install]
+WantedBy=multi-user.target

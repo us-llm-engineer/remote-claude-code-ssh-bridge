@@ -1,0 +1,30 @@
+[Unit]
+Description=Restricted NotebookLM CLI broker for the Claude shell
+After=local-fs.target network-online.target
+Wants=network-online.target
+Requires=claude-nlm-broker.socket
+After=claude-nlm-broker.socket
+
+[Service]
+Type=simple
+User=centos
+Group=claude-shell
+UMask=0007
+ExecStart=/usr/local/libexec/claude-nlm-broker
+Restart=on-failure
+RestartSec=2
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=tmpfs
+BindReadOnlyPaths=/home/centos/.local/share/uv/tools/notebooklm-mcp-cli-v2
+BindReadOnlyPaths=/home/centos/.local/share/uv/python/cpython-3.14.0-linux-x86_64-gnu
+BindReadOnlyPaths=/home/centos/.local/share/uv/python/cpython-3.14.0-linux-x86_64-gnu:/home/centos/.local/share/uv/python/cpython-3.14-linux-x86_64-gnu
+BindPaths=/home/centos/.notebooklm-mcp-cli
+BindPaths=/home/centos/data/projects
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+RestrictSUIDSGID=yes
+LockPersonality=yes
+
+[Install]
+WantedBy=multi-user.target

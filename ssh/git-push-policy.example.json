@@ -1,0 +1,7 @@
+{
+  "github_app": {
+    "app_id": "",
+    "installation_id": "",
+    "private_key": "/etc/claude-remote/github-app.pem"
+  }
+}

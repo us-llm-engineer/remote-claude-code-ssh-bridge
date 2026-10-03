@@ -1,0 +1,2 @@
+# The forced SSH command controls its one argument before this rule is reached.
+claude-mcp ALL=(centos) NOPASSWD: /usr/local/libexec/claude-mcp-runner *

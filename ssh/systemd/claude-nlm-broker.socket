@@ -1,0 +1,14 @@
+[Unit]
+Description=Stable local socket for the restricted NotebookLM CLI broker
+Before=claude-shell-sandbox.service
+
+[Socket]
+ListenStream=/run/claude-nlm/nlm-v2.sock
+SocketMode=0660
+SocketUser=centos
+SocketGroup=claude-shell
+DirectoryMode=0750
+Service=claude-nlm-broker.service
+
+[Install]
+WantedBy=sockets.target

@@ -1,0 +1,2 @@
+claude-shell ALL=(root) NOPASSWD: /usr/local/libexec/claude-git-push-broker --request *
+centos ALL=(root) NOPASSWD: /usr/local/libexec/claude-git-push-broker --authorize *

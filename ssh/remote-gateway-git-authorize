@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Run locally only. It grants one exact bridge push for at most ten minutes.
+set -euo pipefail
+exec sudo -n /usr/local/libexec/claude-git-push-broker --authorize "$@"

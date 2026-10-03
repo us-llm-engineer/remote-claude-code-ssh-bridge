@@ -1,0 +1,1 @@
+claude-shell ALL=(root) NOPASSWD: /usr/local/libexec/claude-shell-runner *

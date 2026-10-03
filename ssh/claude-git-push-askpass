@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+set -euo pipefail
+case "${1:-}" in
+  *Username*) printf '%s\n' 'x-access-token' ;;
+  *Password*) printf '%s\n' "${REMOTE_GATEWAY_GIT_ASKPASS_TOKEN:?missing installation token}" ;;
+  *) exit 1 ;;
+esac

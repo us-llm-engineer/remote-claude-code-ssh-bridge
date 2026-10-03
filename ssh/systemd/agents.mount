@@ -1,0 +1,12 @@
+[Unit]
+Description=Claude agents exposed to remote Claude SFTP
+Before=claude-remote-sshd.service
+
+[Mount]
+What=/home/centos/.claude/agents
+Where=/srv/claude-remote/agents
+Type=none
+Options=bind,ro,nosuid,nodev,noexec
+
+[Install]
+WantedBy=multi-user.target

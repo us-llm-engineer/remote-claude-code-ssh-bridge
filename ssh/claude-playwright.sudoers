@@ -1,0 +1,2 @@
+# Dedicated forced-command identity; it can launch only the Playwright alias.
+claude-playwright ALL=(centos) NOPASSWD: /usr/local/libexec/claude-mcp-runner playwright

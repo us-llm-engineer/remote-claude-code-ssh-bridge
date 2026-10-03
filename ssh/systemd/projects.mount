@@ -1,0 +1,12 @@
+[Unit]
+Description=Projects exposed to remote Claude SFTP
+Before=claude-remote-sshd.service
+
+[Mount]
+What=/home/centos/data/projects
+Where=/srv/claude-remote/projects
+Type=none
+Options=bind,nosuid,nodev,noexec
+
+[Install]
+WantedBy=multi-user.target

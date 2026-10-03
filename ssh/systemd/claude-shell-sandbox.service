@@ -1,0 +1,13 @@
+[Unit]
+Description=Mount restricted Claude shell filesystem
+After=local-fs.target claude-nlm-broker.socket
+Requires=claude-nlm-broker.socket
+Before=claude-remote-sshd.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/libexec/claude-shell-mounts
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
